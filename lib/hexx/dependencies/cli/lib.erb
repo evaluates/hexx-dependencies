@@ -1,0 +1,17 @@
+# encoding: utf-8
+<% tabs = 0 -%>
+<% project.namespaces.each do |item| -%>
+
+<%= "  " * tabs %>module <%= item %>
+<% tabs += 1 -%>
+<% end -%>
+
+<%= "  " * tabs %># @todo Describe the module
+<%= "  " * tabs %>module <%= project.const %>
+
+<%= "  " * tabs %>end # module <%= project.const %>
+<% project.namespaces.reverse.each do |item| -%>
+
+<% tabs -= 1 -%>
+<%= "  " * tabs %>end # module <%= item %>
+<% end -%>

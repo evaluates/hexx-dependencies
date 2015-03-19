@@ -1,0 +1,10 @@
+# encoding: utf-8
+
+# Dummy application
+module Dummy
+
+  ENV["PATH_TO_INITIALIZERS"] =
+    ::File.expand_path("../../config/initializers", __FILE__)
+  require "<%= project.item %>"
+
+end

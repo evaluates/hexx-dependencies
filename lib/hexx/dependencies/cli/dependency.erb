@@ -1,0 +1,6 @@
+<% tabs = project.namespaces.count + 2 %>
+<%= "  " * tabs %># @!attribute <%= dependency %>
+<%= "  " * tabs %># @todo Describe the dependency
+<%= "  " * tabs %>#
+<%= "  " * tabs %># @return [Module]
+<%= "  " * tabs %>attr_accessor :<%= dependency %>

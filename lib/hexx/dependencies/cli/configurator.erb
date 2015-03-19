@@ -1,0 +1,35 @@
+# encoding: utf-8
+<% tabs = 0 -%>
+<% project.namespaces.each do |item| -%>
+
+<%= "  " * tabs %>module <%= item %>
+<% tabs += 1 -%>
+<% end -%>
+
+<%= "  " * tabs %>module <%= project.const %>
+
+<%= "  " * tabs %>  # The module's eigenclass containing its settings
+<%= "  " * tabs %>  class << self
+
+<%= "  " * tabs %>    # Configures the module settings
+<%= "  " * tabs %>    #
+<%= "  " * tabs %>    # @example
+<%= "  " * tabs %>    #   <%= project.type %>.configure do
+<%= "  " * tabs %>    #     setting = Injection
+<%= "  " * tabs %>    #   end
+<%= "  " * tabs %>    #
+<%= "  " * tabs %>    # @yield the block in the module eigenclass' scope
+<%= "  " * tabs %>    #
+<%= "  " * tabs %>    # @return [undefined]
+<%= "  " * tabs %>    def configure
+<%= "  " * tabs %>      instance_eval { yield } if block_given?
+<%= "  " * tabs %>    end
+
+<%= "  " * tabs %>  end # eigenclass
+
+<%= "  " * tabs %>end # module <%= project.const %>
+<% project.namespaces.reverse.each do |item| -%>
+
+<% tabs -= 1 -%>
+<%= "  " * tabs %>end # module <%= item %>
+<% end -%>

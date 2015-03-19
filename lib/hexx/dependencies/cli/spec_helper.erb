@@ -1,0 +1,8 @@
+# encoding: utf-8
+require "hexx-rspec"
+
+# Loads the runtime metrics
+Hexx::RSpec.loads_metrics_for(self)
+
+# Loads the dummy app
+require_relative "dummy/lib/dummy"

@@ -1,0 +1,3 @@
+<% tabs = project.namespaces.count + 1 %>
+<% "  " * tabs %>  require_relative "<%= project.item %>/configurator"
+<% "  " * tabs %>  load ::File.join(ENV["PATH_TO_INITIALIZERS"], "<%= project.file %>.rb")
