@@ -44,7 +44,7 @@ module Hexx
         template "spec_helper.erb", "spec/spec_helper.rb", skip: true
         gsub_file(
           "spec/spec_helper.rb",
-          /require\s+"#{ project.item }"/,
+          /require\s+"#{ project.file }"/,
           "require_relative \"dummy/lib/dummy\""
         )
       end
