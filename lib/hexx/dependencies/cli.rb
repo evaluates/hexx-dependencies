@@ -16,8 +16,8 @@ module Hexx
       argument(
         :name,
         banner: "NAME",
+        default: "",
         desc: "The name of the dependency",
-        required: false,
         type: :string
       )
 
@@ -128,7 +128,7 @@ module Hexx
       end
 
       def dependency
-        @dependency ||= name ? name.to_s.snake_case : nil
+        @dependency ||= (name == "") ? nil : name.to_s.snake_case
       end
 
       def injection
